@@ -12,6 +12,7 @@ import RxCocoa
 import CHTCollectionViewWaterfallLayout
 import MobileCoreServices
 import AVKit
+import SimpleImageViewer
 
 class ViewController: UIViewController {
 
@@ -126,5 +127,21 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
 extension ViewController: CHTCollectionViewDelegateWaterfallLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         return viewModel.getImageSize(indexPath.row)
+    }
+}
+
+extension ViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let url = viewModel.items.value[indexPath.item].url,
+            let image = IVImageCache.shared.images[url] else {
+                return
+        }
+        let configuration = ImageViewerConfiguration(configurationClosure: { (config) in
+            config.image = image
+        })
+        let imageViewController = ImageViewerController(configuration: configuration)
+        self.present(imageViewController, animated: true)
     }
 }

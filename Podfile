@@ -13,5 +13,6 @@ target 'ImageViewer' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'CHTCollectionViewWaterfallLayout/Swift'
+  pod 'SimpleImageViewer', '~> 1.1'
   
 end
