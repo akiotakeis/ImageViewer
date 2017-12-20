@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>868878245010-cb456h3ucj2chpd973vs9gim3uia3o9r.apps.googleusercontent.com</string>
+	<string>868878245010-orcsomt4jvlm7vtg4j817kq4ulstqimc.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.868878245010-cb456h3ucj2chpd973vs9gim3uia3o9r</string>
+	<string>com.googleusercontent.apps.868878245010-orcsomt4jvlm7vtg4j817kq4ulstqimc</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBNIn70Q6-m51PsjdpzCi2Ov30iO4kQnOM</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.Angel.ImageViewer</string>
+	<string>com.dwellant.csite</string>
 	<key>PROJECT_ID</key>
 	<string>imageviewer-61047</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:868878245010:ios:cde6e579e69544df</string>
+	<string>1:868878245010:ios:5864d5cf23b9de5a</string>
 	<key>DATABASE_URL</key>
 	<string>https://imageviewer-61047.firebaseio.com</string>
 </dict>
