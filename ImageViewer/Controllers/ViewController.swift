@@ -10,11 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 import CHTCollectionViewWaterfallLayout
+import MobileCoreServices
+import AVKit
 
 class ViewController: UIViewController {
 
     let viewModel = IVImageViewModel()
     @IBOutlet weak var itemsCollectionView: UICollectionView!
+    let metal = IVMetal.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,12 +67,43 @@ class ViewController: UIViewController {
         self.present(actionController, animated: true, completion: nil)
     }
     
-    func openCamera(_ source: UIImagePickerControllerSourceType) {
+    @IBAction func onVideoButtonPressed(_ sender: Any) {
+        
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            return
+        }
+        openCamera(.camera, type: kUTTypeMovie as String)
+    }
+    
+    func openCamera(_ source: UIImagePickerControllerSourceType, type: String = kUTTypeImage as String) {
         let picker = UIImagePickerController()
         picker.sourceType = source
+        picker.mediaTypes = [type]
         picker.delegate = self
-        picker.allowsEditing = false
+        picker.allowsEditing = type == kUTTypeMovie as String
+        picker.videoMaximumDuration = 0.5
         present(picker, animated: true)
+    }
+    
+    func combineFirstTwoFrameAndUpload(_ url: URL) {
+        
+        DispatchQueue.global().async {
+            let asset = AVAsset(url: url)
+            let assetImgGenerate = AVAssetImageGenerator(asset: asset)
+            assetImgGenerate.appliesPreferredTrackTransform = true
+            if let cgImage = try? assetImgGenerate.copyCGImage(at: CMTimeMake(0, 10), actualTime: nil),
+               let cgImage2 = try? assetImgGenerate.copyCGImage(at: CMTimeMake(1, 10), actualTime: nil) {
+                DispatchQueue.main.async(execute: {
+                    let image = UIImage(cgImage: cgImage)
+                    let image2 = UIImage(cgImage: cgImage2)
+                    self.metal.combineImages(image, image2, { (combinedImage) in
+                        if let combinedImage = combinedImage {
+                            self.viewModel.addImage(combinedImage)
+                        }
+                    })
+                })
+            }
+        }
     }
 }
 
@@ -79,10 +113,12 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        if mediaType == kUTTypeMovie as String, let url = info[UIImagePickerControllerMediaURL] as? URL {
+            combineFirstTwoFrameAndUpload(url)
+        } else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             viewModel.addImage(image)
         }
-        
         picker.dismiss(animated: true)
     }
 }

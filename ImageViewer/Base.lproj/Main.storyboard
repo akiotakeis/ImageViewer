@@ -25,10 +25,25 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDm-tR-KCe">
-                                <rect key="frame" x="167" y="597" width="40" height="40"/>
+                                <rect key="frame" x="207.5" y="597" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="IXp-Up-6AB"/>
+                                    <constraint firstAttribute="height" constant="40" id="uPO-ZK-LWD"/>
+                                </constraints>
                                 <state key="normal" image="camera"/>
                                 <connections>
                                     <action selector="onShowImageOptions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ih5-bO-L60"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQE-cz-PfK">
+                                <rect key="frame" x="127.5" y="597" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="34W-eY-UrK"/>
+                                    <constraint firstAttribute="height" constant="40" id="QPY-ph-LBs"/>
+                                </constraints>
+                                <state key="normal" image="video"/>
+                                <connections>
+                                    <action selector="onVideoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dsc-gA-hH9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -37,8 +52,10 @@
                             <constraint firstItem="gGk-sH-xcT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-5" id="1NZ-Cc-oDS"/>
                             <constraint firstItem="gGk-sH-xcT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="HwC-Yc-f2R"/>
                             <constraint firstItem="gGk-sH-xcT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-5" id="RE5-hm-wgA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZQE-cz-PfK" secondAttribute="bottom" constant="30" id="cPO-cG-Tl3"/>
+                            <constraint firstItem="ZQE-cz-PfK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-40" id="mNx-pG-Ph6"/>
                             <constraint firstItem="gGk-sH-xcT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="osG-Ez-mtP"/>
-                            <constraint firstItem="fDm-tR-KCe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pEv-MF-pac"/>
+                            <constraint firstItem="fDm-tR-KCe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="40" id="pEv-MF-pac"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fDm-tR-KCe" secondAttribute="bottom" constant="30" id="u6n-tl-ALk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -54,5 +71,6 @@
     </scenes>
     <resources>
         <image name="camera" width="40" height="40"/>
+        <image name="video" width="256" height="256"/>
     </resources>
 </document>

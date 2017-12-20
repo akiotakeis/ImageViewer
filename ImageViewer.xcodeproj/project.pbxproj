@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		668864491FEA928E0033CB95 /* IVKernels.metal in Sources */ = {isa = PBXBuildFile; fileRef = 668864481FEA928E0033CB95 /* IVKernels.metal */; };
+		6688644B1FEA93AD0033CB95 /* IVMetal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6688644A1FEA93AD0033CB95 /* IVMetal.swift */; };
 		A9A7FC871FE8BB4D0061D90C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FC861FE8BB4D0061D90C /* AppDelegate.swift */; };
 		A9A7FC891FE8BB4D0061D90C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FC881FE8BB4D0061D90C /* ViewController.swift */; };
 		A9A7FC8C1FE8BB4D0061D90C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FC8A1FE8BB4D0061D90C /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		668864481FEA928E0033CB95 /* IVKernels.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = IVKernels.metal; sourceTree = "<group>"; };
+		6688644A1FEA93AD0033CB95 /* IVMetal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVMetal.swift; sourceTree = "<group>"; };
 		A9A7FC831FE8BB4D0061D90C /* ImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A7FC861FE8BB4D0061D90C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9A7FC881FE8BB4D0061D90C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +73,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		668864471FEA92170033CB95 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				668864481FEA928E0033CB95 /* IVKernels.metal */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
 		A9A7FC7A1FE8BB4D0061D90C = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A7FC861FE8BB4D0061D90C /* AppDelegate.swift */,
+				668864471FEA92170033CB95 /* Metal */,
 				A9A7FCA71FE929FB0061D90C /* Manager */,
 				A9A7FC9C1FE8BFA80061D90C /* Mdels */,
 				A9A7FC9E1FE8BFB40061D90C /* ViewModels */,
@@ -142,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A7FCA81FE92A090061D90C /* IVImageCache.swift */,
+				6688644A1FEA93AD0033CB95 /* IVMetal.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -293,8 +307,10 @@
 			files = (
 				A9A7FCA01FE8BFD00061D90C /* IVImage.swift in Sources */,
 				A9A7FC891FE8BB4D0061D90C /* ViewController.swift in Sources */,
+				6688644B1FEA93AD0033CB95 /* IVMetal.swift in Sources */,
 				A9A7FC871FE8BB4D0061D90C /* AppDelegate.swift in Sources */,
 				A9A7FCA51FE90BA80061D90C /* IVCollectionViewCell.swift in Sources */,
+				668864491FEA928E0033CB95 /* IVKernels.metal in Sources */,
 				A9A7FCA21FE8C0C70061D90C /* IVImageViewModel.swift in Sources */,
 				A9A7FCA91FE92A090061D90C /* IVImageCache.swift in Sources */,
 			);
@@ -435,10 +451,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66K5CYK87N;
 				INFOPLIST_FILE = ImageViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Angel.ImageViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwellant.csite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -451,10 +468,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66K5CYK87N;
 				INFOPLIST_FILE = ImageViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Angel.ImageViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwellant.csite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
