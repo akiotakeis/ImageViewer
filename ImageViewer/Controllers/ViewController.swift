@@ -83,6 +83,7 @@ class ViewController: UIViewController {
         picker.delegate = self
         picker.allowsEditing = type == kUTTypeMovie as String
         picker.videoMaximumDuration = 0.5
+        picker.videoQuality = .typeHigh
         present(picker, animated: true)
     }
     
